@@ -1,8 +1,6 @@
 N = int(input())
 
 li = []
-
-
 dic = {}
 
 for i in range(N):
@@ -24,23 +22,12 @@ def findWeight(li, dic):
 findWeight(li, dic)
 
 sorted_weight = sorted(dic.items(), key= lambda item: item[1], reverse=True)
-
 number = 9
-
-char_to_num = {}
+res = 0
 
 for char, weight in sorted_weight:
-    char_to_num[char] = str(number)
+    res += weight * number
     number -= 1
 
-res = 0
-for i in range(len(li)):
-    trans = ""
-    for j in range(len(li[i])):
-        trans += char_to_num[li[i][j]]
-    res += int(trans)
+
 print(res)
-
-
-
-
